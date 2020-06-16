@@ -17,25 +17,25 @@ SnapCurrentWindow(winPlaceVertical, winPlaceHorizontal, winPlaceHeight) {
 
     ; determine where on the monitor the window is going to be placed
     Switch winSizeHeight {
-        case "half":
+        Case "half":
             height := MonitorWorkArea - MonitorWorkArea / 2
             text . 
             return 
-        case "full":
+        Case "full":
             height := MonitorWorkAreaBottom - MonitorWorkAreaTop
             text .
             return 
-        case "third":
+        Case "third":
         height := MonitorWorkAreaBottom - MonitorWorkAreaTop
     }
 
     Switch winPlaceHorizontal {
-        case "left":
+        Case "left":
             posX := MonitorWorkAreaLeft
             width := MonitorWorkAreaRight - MonitorWorkAreaLeft / 2
             text .
             return 
-        case "right":
+        Case "right":
             posX := MonitorWorkAreaLeft + MonitorWorkAreaRight - MonitorWorkAreaLeft / 2
             width := MonitorWorkAreaRight - MonitorWorkAreaLeft / 2
         default:
@@ -44,11 +44,11 @@ SnapCurrentWindow(winPlaceVertical, winPlaceHorizontal, winPlaceHeight) {
     }
 
     Switch winPlaceVertical {
-        case "bottom":
+        Case "bottom":
             posY := MonitorWorkAreaBottom - height 
             text .
             return 
-        case "middle":
+        Case "middle":
             posY := MonitorWorkAreaTop + height 
             text .
             return 
@@ -65,22 +65,22 @@ ShrinkWindow(command) {
     SysGet, MonitorWorkArea, MonitorWorkArea, %activeMonitor%
 
     switch Command {
-        case "halfbottonm":
+        Case "halfbottonm":
             height := height / 2
             posY := posY + height
             return 
-        case "halfright":
+        Case "halfright":
             width := width / 2 
             posX := posX + width
             return 
-        case "halfleft":
+        Case "halfleft":
             width := width / 2
             return 
-        case "halftopleft":
+        Case "halftopleft":
             height := height / 2 
             width := width / 2
             return 
-        case "halftopright":
+        Case "halftopright":
             height := height / 2
             width /= 2
             posX := posX + width
